@@ -9,6 +9,8 @@ Integrate Gravity Forms with Paid Memberships Pro
 
 == Description ==
 
+IMPORTANT NOTE: This plugin is under active development and note ready for use yet.
+
 = General features of this Integration include: =
 1. Add users to specified levels after submitting a form.
 1. Restrict forms for specified levels.
