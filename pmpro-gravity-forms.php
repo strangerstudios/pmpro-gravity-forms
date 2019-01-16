@@ -1,20 +1,55 @@
 <?php
-/*
- Plugin Name: Paid Memberships Pro - Gravity Forms Add On
- Plugin URI: https://www.paidmembershipspro.com/add-ons/gravity-forms-integration/
- Description: Integrate Gravity Forms with Paid Memberships profiles
- Version: 1.0
- Author: Paid Memberships Pro
- Author URI: https://www.paidmembershipspro.com
- Text Domain: pmpro-gravity-forms
+/**
+ * Plugin Name: Paid Memberships Pro - Gravity Forms Add On
+ * Plugin URI: https://www.paidmembershipspro.com/add-ons/gravity-forms-integration/
+ * Description: Integrate Gravity Forms with Paid Memberships profiles
+ * Version: 1.0
+ * Author: Paid Memberships Pro, JeffMatson
+ * Author URI: https://www.paidmembershipspro.com
+ * Text Domain: pmpro-gravity-forms
+ *
+ * @package PMPro_Gravity_Forms
  */
-/*
-    includes
-*/
+
 define( 'PMPROGF_DIR', dirname( __FILE__ ) );
 define( 'PMPROGF_BASENAME', plugin_basename( __FILE__ ) );
+define( 'PMPROGF_VERSION', '1.0' );
 
 require_once( PMPROGF_DIR . '/includes/admin.php' );
+
+add_action( 'gform_loaded', array( 'GF_PMPro_Bootstrap', 'load' ), 5 );
+
+/**
+ * Bootstraps the Gravity Forms add-on.
+ */
+class GF_PMPro_Bootstrap {
+
+	/**
+	 * Just a loader.
+	 *
+	 * @return void
+	 */
+	public static function load() {
+
+		if ( ! method_exists( 'GFForms', 'include_addon_framework' ) ) {
+			return;
+		}
+
+		require_once( PMPROGF_DIR . '/includes/gfpmpro.php' );
+
+		GFAddOn::register( 'GFPMProAddOn' );
+	}
+
+}
+
+/**
+ * Gets an instance of the GFPMProAddOn class.
+ *
+ * @return GFPMProAddOn
+ */
+function gf_pmpro_addon() {
+	return GFPMProAddOn::get_instance();
+}
 
 /*
 	After a form is submitted, move users into a specified membership level.
