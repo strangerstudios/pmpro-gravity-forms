@@ -9,7 +9,7 @@ Integrate Gravity Forms with Paid Memberships Pro
 
 == Description ==
 
-IMPORTANT NOTE: This plugin is under active development and note ready for use yet.
+IMPORTANT NOTE: This plugin is under active development and note ready for use yet. You can also integrate Gravity Forms with Paid Memberships Pro by using the Gravity PMP premium plugin by Ristretto Apps. https://ristrettoapps.com/downloads/gravity-forms-paid-memberships-pro-integratation/
 
 = General features of this Integration include: =
 1. Add users to specified levels after submitting a form.
